@@ -9,68 +9,62 @@
 
   <body>
         <header>
-            <div id="top-page-highscore">
-                <h2>View Highscores</h2>
+            <div class="score">
+                <h3 class="viewHighscore">View Highscores</h3>
             </div>
             <div>
-                <h2 id="page-time">Time: 75</h2>
+                <h3 class="time">Time: 75</h3>
             </div>
         </header>
 
-        <main class="main-text">
-            <div >
+        <main>
+            <div class="start">
                 <h1>Javascript Coding Quiz</h1>
                 <br>
                 <p>Try to answer the following code related questions within the time limit. Incorrect answers will result in a ten second penalty.</p>
                 <p>Log your highscore at the end.</p>
                 <p>Good luck!</p>
+                <br>
+                <button class="startButton">Start Quiz</button>                
             </div>
-            <br>
-            <div>
-                <button id="button">Start Quiz</button>
+            <div class="q1">
+                <h4>Commonly used data types DO NOT include:</h4>
+                <button class="buttons" id="button1">1. strings</button>
+                <button class="buttons" id="button2">2. booleans</button>
+                <button class="buttons" id="button3">3. alerts</button>
+                <button class="buttons" id="button4">4. numbers</button>
             </div>
+            <div class="q2">
+                <h4>The condition in an if/else statement is enclosed within _____.</h4>
+                <button class="buttons" id="button1">1. quotes</button>
+                <button class="buttons" id="button2">2. curly brackets</button>
+                <button class="buttons" id="button3">3. parentheses</button>
+                <button class="buttons" id="button4">4. square brackets</button>
+            </div>
+            <div class="q3">
+                <h4>Arrays in JavaScript can be used to store _____.</h4>
+                <button class="buttons" id="button1">1. numbers and strings</button>
+                <button class="buttons" id="button2">2. other arrays</button>
+                <button class="buttons" id="button3">3. booleans</button>
+                <button class="buttons" id="button4">4. all of the above</button>
+            </div>
+            <div class="q4">
+                <h4>String values must be enclosed within _____ when being assigned to variables.</h4>
+                <button class="buttons" id="button1">1. commas</button>
+                <button class="buttons" id="button2">2. curly brackets</button>
+                <button class="buttons" id="button3">3. quotes</button>
+                <button class="buttons" id="button4">4. parentheses</button>
+            </div>
+            <div class="q5">
+                <h4>A very useful tool used during development and debugging for printing content to the debugger is:</h4>
+                <button class="buttons" id="button1">1. JavaScript</button>
+                <button class="buttons" id="button2">2. terminal/bash</button>
+                <button class="buttons" id="button3">3. for loops</button>
+                <button class="buttons" id="button4">4. console.log</button>
+            </div>
+            
         </main>
-
-        <footer class="footer">
-            <h4>Made by Mackenzie Gray</h4>
-            <p>2022 All Rights Reserved</p>
-        </footer>
 
         <script src="./Develop/script.js"></script>
   </body>
 </html>
-
-
-<!-- Q1
-Commonly used data types DO NOT include:
-1. strings
-2. booleans  x
-3. alerts
-4. numbers
-
-Q2
-The condition in an if/else statement is enclosed within _____.
-1. quotes
-2. curly brackets
-3. parentheses  *
-4. square brackets
-
-Q3 Arrays in JavaScript can be used to store _____.
-1. numbers and strings
-2. other arrays
-3. booleans
-4. all of the above *
-
-Q4
-String values must be enclosed within _____ when being assigned to variables.
-1. commas 
-2. curly brackets  x
-3. quotes 
-4. parentheses
-
-Q5
-A very useful tool used during development and debugging for printing content to the debugger is:
-1. JavaScript
-2. terminal/bash
-3. for loops 
-4. console.log  * -->
