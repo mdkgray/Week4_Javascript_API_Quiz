@@ -21,7 +21,13 @@ body {
 }
 
 .viewHighscore {
-    color: rgb(78, 38, 170);
+    background-color: rgb(78, 38, 170);
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    cursor: pointer;
+    */
 }
 
 .time {
@@ -125,4 +131,17 @@ p {
     color: white;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.input-box {
+    width: 500px;
+    text-align: left;
+}
+
+.input-heading {
+    text-align: center;
+}
+
+.submit-button {
+    padding-left: 3px;
 }
