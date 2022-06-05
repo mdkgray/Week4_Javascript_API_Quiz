@@ -27,7 +27,6 @@ body {
     padding: 5px;
     cursor: pointer;
     cursor: pointer;
-    */
 }
 
 .time {
@@ -134,8 +133,16 @@ p {
 }
 
 .input-box {
+    display: none;
     width: 500px;
     text-align: left;
+    margin-left: 35%;
+    margin-top: 5%;
+}
+
+.input.area {
+    border: none;
+    background-color: rgb(235 235 235);
 }
 
 .input-heading {
@@ -144,4 +151,40 @@ p {
 
 .submit-button {
     padding-left: 3px;
+    background-color: rgb(78, 38, 170);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.highscore {
+    display: none;
+    width: 400px;
+    text-align: left;
+    margin-left: 40%;
+    margin-top: 5%;
+}
+
+.highscore-display {
+    width: 90%;
+    border: none;
+    background-color: rgb(235 235 235);
+}
+
+#backButton {
+    background-color: rgb(78, 38, 170);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+#clearHighscores {
+    background-color: rgb(78, 38, 170);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 5px;
 }

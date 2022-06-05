@@ -64,14 +64,21 @@
             <button class="buttons" id="button4">4. console.log</button>
         </div>
 
-        <!-- Write html for input of score to be put into system -->
         <div class="input-box">
-            <h4>All done!</h4>
-            <p>Your final score is <span id="scoreInput">""</span></p>
-            <p>Enter initials: <input class="input.box"> </input><button class="submit-button">Submit</button>
+            <h4 class="input-heading">All done!</h4>
+            <p>Your final score is <span id="scoreInput">.</span></p>
+            <p>Enter initials: <input class="input.area"> </input><button class="submit-button">Submit</button>
             </p>
         </div>
 
+        <div class="highscore">
+            <h4>Highscores</h4>
+            <ol class="highscore-display">
+                <li></li>
+            </ol>
+            <br>
+            <button id="backButton">Go Back</button><button id="clearHighscores">Clear Highscores</button>            
+        </div>
     </main>
 
     <script src="./Develop/script.js"></script>
