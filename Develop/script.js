@@ -1,24 +1,75 @@
+// variables for start button
 var startButton = document.querySelector(".startButton");
-var timerElement = document.querySelector("#countdown");
-var q1Element = document.querySelector(".q1");
-var q2Element = document.querySelector(".q2");
-var q3Element = document.querySelector(".q3");
-var q4Element = document.querySelector(".q4");
-var q5Element = document.querySelector(".q5");
 
+// variables for timer 
+var timerElement = document.querySelector("#countdown");
+var score = document.querySelector("#scoreInput");
+var secondsLeft = 75;
 var isCorrect = false;
 var timer;
 var timerCount;
 
-startButton.addEventListener("click", startQuiz);
+// variables for questions section
+var allQuestionsEl = document.querySelector(".all-question");
 
-function startQuiz() {
-    timerCount = 75;
-    startButton.disabled = true;
-    startTimer();
-}
+// variables for question elements outside of question ul
+var questionEl = document.querySelector("#question");
+var correctWrong = document.querySelector("#right-wrong");
+var questionCount = 0;
 
-// NEED TO ADD REDUCTION IN TIME FOR INCORRECT ANSWER
+// variable for final score
+var finalEl = document.querySelector("#final-score");
+var initialsInput = document.querySelector("#initials");
+
+// variables for highscore
+var highscoresEl = document.querySelector("#highscore");
+var scoreListEl = document.querySelector(".highscore-display");
+var scoreList = [];
+
+// answer button for questions variable 
+var ansBtn = document.querySelectorAll("button.answer-btn");
+
+// variables for action buttons e.g. sumbit, go back, clear scores, view scores
+var submitScoreBtn = document.querySelector("submit-button");
+var clearScoreBtn = document.querySelector("#clearHighscores");
+var viewScoreBtn = document.querySelector("#view-scores")
+var goBackBtn = document.querySelector("#backButton")
+
+// variables for calling answers
+var ans1Btn = document.querySelector("#answer-1");
+var ans2Btn = document.querySelector("#answer-2");
+var ans3Btn = document.querySelector("#answer-3");
+var ans4Btn = document.querySelector("#answer-4");
+
+// questions array (index starts at [0])
+const questions = [
+    {
+        question: "Commonly used data types DO NOT include:",
+        answers: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
+        correctAnswer: "2"
+    },
+    {
+        question: "The condition in an if/else statement is enclosed within _____.",
+        answers: ["1. quotes", "2. curly brackets", "3. parentheses", "4. square brackets"],
+        correctAnswer: "1"
+    },
+    {
+        question: "Arrays in JavaScript can be used to store _____.",
+        answers: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
+        correctAnswer: "3"
+    },
+    {
+        question: "String values must be enclosed within _____ when being assigned to variables.",
+        answers: ["1. commmas", "2. curly brackets", "3. quotes", "4. parentheses"],
+        correctAnswer: "2"
+    },
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        answers: ["1. Javascript", "2. terminal/bash", "3. for loops", "4. console.log"],
+        correctAnswer: "3"
+    }
+];
+
 function startTimer() {
     timer = setInterval(function() {
         timerCount--;
@@ -30,14 +81,24 @@ function startTimer() {
         }
         if (timerCount == 0) {
             clearInterval(timer);
-            alert("times run out");
+            allQuestionsEl.getElementsByClassName.display = "none";
+            finalEl.style.display = "block";
+            score.textContent = timerCount;
         }
     }, 1000);
 }
 
-function loseQuiz() {
-
+function startQuiz() {
+    timerCount = 75;
+    startButton.disabled = true;
+    startTimer();
 }
+
+
+
+startButton.addEventListener("click", startQuiz);
+
+
 
 
 //      write global variables
@@ -59,40 +120,3 @@ function loseQuiz() {
 // view highscore function to show previous scores when logged
 // function to clear highscores from list 
 
-
-
-
-
-        //   "q1"
-        //     Commonly used data types DO NOT include:
-        //     1. strings
-        //     2. booleans
-        //     3. alerts
-        //     4. numbers
-        
-        // "q2"
-        //     <The condition in an if/else statement is enclosed within _____.</
-        //     1. quotes
-        //     2. curly brackets
-        //     3. parentheses
-        //     4. square brackets
-        
-        //  q3
-        //     <Arrays in JavaScript can be used to store _____.</
-        //     1. numbers and strings
-        //     2. other arrays
-        //     3. booleans
-        //     4. all of the above
-        //  q4
-        //    <String values must be enclosed within _____ when being assigned to variables.</
-        //     1. commas
-        //     2. curly brackets
-        //     3. quotes
-        //     4. parentheses
-        //  q5
-        //     A very useful tool used during development and debugging for printing content to the debugger is:
-        //     1. JavaScript
-        //     2. terminal/bash
-        //     3. for loops
-        //     4. console.log
-        
