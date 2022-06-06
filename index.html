@@ -28,50 +28,34 @@
             <br>
             <button class="startButton">Start Quiz</button>
         </div>
-        <div class="q1">
-            <h4>Commonly used data types DO NOT include:</h4>
-            <button class="buttons" id="button1">1. strings</button>
-            <button class="buttons" id="button2">2. booleans</button>
-            <button class="buttons" id="button3">3. alerts</button>
-            <button class="buttons" id="button4">4. numbers</button>
-        </div>
-        <div class="q2">
-            <h4>The condition in an if/else statement is enclosed within _____.</h4>
-            <button class="buttons" id="button1">1. quotes</button>
-            <button class="buttons" id="button2">2. curly brackets</button>
-            <button class="buttons" id="button3">3. parentheses</button>
-            <button class="buttons" id="button4">4. square brackets</button>
-        </div>
-        <div class="q3">
-            <h4>Arrays in JavaScript can be used to store _____.</h4>
-            <button class="buttons" id="button1">1. numbers and strings</button>
-            <button class="buttons" id="button2">2. other arrays</button>
-            <button class="buttons" id="button3">3. booleans</button>
-            <button class="buttons" id="button4">4. all of the above</button>
-        </div>
-        <div class="q4">
-            <h4>String values must be enclosed within _____ when being assigned to variables.</h4>
-            <button class="buttons" id="button1">1. commas</button>
-            <button class="buttons" id="button2">2. curly brackets</button>
-            <button class="buttons" id="button3">3. quotes</button>
-            <button class="buttons" id="button4">4. parentheses</button>
-        </div>
-        <div class="q5">
-            <h4>A very useful tool used during development and debugging for printing content to the debugger is:</h4>
-            <button class="buttons" id="button1">1. JavaScript</button>
-            <button class="buttons" id="button2">2. terminal/bash</button>
-            <button class="buttons" id="button3">3. for loops</button>
-            <button class="buttons" id="button4">4. console.log</button>
-        </div>
 
-        <div class="input-box">
+        <section class="all-question" id="questions">
+            <div class="questions-list">
+                <div class="list-inner">
+                    <ul class="question-ul">
+                        <h4 class="switch" id="question">I am a question</h4>
+                        <li class="questions-li"><button id="answer-1" value="0" type="button" class="answer-btns">Answer 1</button></li>
+                        <li class="questions-li"><button id="answer-2" value="1" type="button" class="answer-btns">Answer 2</button></li>
+                        <li class="questions-li"><button id="answer-3" value="2" type="button" class="answer-btns">Answer 3</button></li>
+                        <li class="questions-li"><button id="answer-4" value="3" type="button" class="answer-btns">Answer 4</button></li>
+                    </ul>
+
+                    <div id="right-wrong">
+
+                        <hr> 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="final-score">
             <h4 class="input-heading">All done!</h4>
             <p>Your final score is <span id="scoreInput">.</span></p>
-            <p>Enter initials: <input class="input.area"> </input><button class="submit-button">Submit</button>
+            <p>Enter initials: <input class="input.area" placeholder="initials"> </input><button class="submit-button">Submit</button>
             </p>
         </div>
 
-        <div class="highscore">
+        <div id="highscore">
             <h4>Highscores</h4>
             <ol class="highscore-display">
                 <li></li>

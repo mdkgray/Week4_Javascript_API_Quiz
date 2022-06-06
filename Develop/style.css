@@ -63,62 +63,25 @@ p {
     cursor: pointer;
 }
 
-.q1 {
-    display: none;
-    flex-direction: column;
-    position: relative;
-    width: 300px;
-    height: 200px;
-    top: 50%;
-    left: 50%;
-    margin: -100px 0 0 -150px;
+.questions-ul {
+    list-style-type: none;
+    display: contents;
 }
 
-.q2 {
-    display: none;
-    flex-direction: column;
-    position: relative;
-    width: 300px;
-    height: 200px;
-    top: 50%;
-    left: 50%;
-    margin: -100px 0 0 -150px;
+.questions-li {
+    width: 250px;
+    list-style-type: none;
 }
 
-.q3 {
-    display: none;
-    flex-direction: column;
-    position: relative;
-    width: 300px;
-    height: 200px;
-    top: 50%;
-    left: 50%;
-    margin: -100px 0 0 -150px;
+.list-inner {
+    display: grid;
+    grid-template-rows: 1fr, 2fr, 1fr;
+    grid-auto-rows: (10px, auto);
+    grid-gap: .05em; 
+    justify-items: center; 
 }
 
-.q4 {
-    display: none;
-    flex-direction: column;
-    position: relative;
-    width: 300px;
-    height: 200px;
-    top: 50%;
-    left: 50%;
-    margin: -100px 0 0 -150px;
-}
-
-.q5 {
-    display: none;
-    flex-direction: column;
-    position: relative;
-    width: 300px;
-    height: 200px;
-    top: 50%;
-    left: 50%;
-    margin: -100px 0 0 -150px;
-}
-
-.buttons {
+.answer-btns {
     align-items: flex-start;
     text-align: left;
     height: 30px;
@@ -132,8 +95,12 @@ p {
     cursor: pointer;
 }
 
-.input-box {
-    display: none;
+#right-wrong {
+    font-weight: lighter;
+    font: italic;
+}
+
+#final-score {
     width: 500px;
     text-align: left;
     margin-left: 35%;
@@ -157,8 +124,7 @@ p {
     cursor: pointer;
 }
 
-.highscore {
-    display: none;
+#highscore {
     width: 400px;
     text-align: left;
     margin-left: 40%;
@@ -187,4 +153,12 @@ p {
     cursor: pointer;
     margin-top: 5px;
     margin-left: 5px;
+}
+
+/* Hides page element */
+#highscore,
+#final-score,
+#right-wrong, 
+#questions {
+    display: none;
 }
