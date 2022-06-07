@@ -1,6 +1,21 @@
 // variables for start button
 var startButton = document.querySelector(".startButton");
 
+// answer button for questions variable 
+var ansBtn = document.querySelectorAll("button.answer-btns");
+
+// variables for action buttons e.g. sumbit, go back, clear scores, view scores
+var submitScoreBtn = document.querySelector("submit-button");
+var clearScoreBtn = document.querySelector("#clearHighscores");
+var viewScoreBtn = document.querySelector("#view-scores")
+var goBackBtn = document.querySelector("#backButton")
+
+// variables for calling answers
+var ans1Btn = document.querySelector("#answer-1");
+var ans2Btn = document.querySelector("#answer-2");
+var ans3Btn = document.querySelector("#answer-3");
+var ans4Btn = document.querySelector("#answer-4");
+
 // variable for div with landing page
 var landingPage = document.querySelector(".start");
 
@@ -8,9 +23,6 @@ var landingPage = document.querySelector(".start");
 var timerElement = document.querySelector("#countdown");
 var score = document.querySelector("#scoreInput");
 var secondsLeft = 75;
-// var isCorrect = false;
-// var timer;
-// var timerCount;
 
 // variables for questions section
 var allQuestionsEl = document.querySelector(".all-question");
@@ -26,23 +38,9 @@ var initialsInput = document.querySelector("#initials");
 
 // variables for highscore
 var highscoreEl = document.querySelector("#highscore");
-var scoreListEl = document.querySelector(".highscore-display");
-var scoreList = [];
+var highscoreDisplayEl = document.querySelector(".highscore-display");
+var userScore = [];
 
-// answer button for questions variable 
-var ansBtn = document.querySelectorAll("button.answer-btns");
-
-// variables for action buttons e.g. sumbit, go back, clear scores, view scores
-var submitScoreBtn = document.querySelector("submit-button");
-var clearScoreBtn = document.querySelector("#clearHighscores");
-var viewScoreBtn = document.querySelector("#view-scores")
-var goBackBtn = document.querySelector("#backButton")
-
-// variables for calling answers
-var ans1Btn = document.querySelector("#answer-1");
-var ans2Btn = document.querySelector("#answer-2");
-var ans3Btn = document.querySelector("#answer-3");
-var ans4Btn = document.querySelector("#answer-4");
 
 // questions array (index starts at [0])
 var questions = [
@@ -140,6 +138,43 @@ function checkAnswers(event) {
     }
     cycleQuestion(questionCount);
 }
+
+// Function for adding score 
+function addScore(event) {
+    event.preventDefault();
+
+    finalScoreEl.style.display = "none";
+    highscoreEl.style.display = "block";
+
+    var userInitials = initialsInput.value.toUpperCase();
+    userScore.push({initials: userInitials, score: secondsLeft});
+
+
+
+  // sorts score highest to lowest then appends them to the DOM
+    userScore = userScore.sort((a, b) => {
+        if (a.score < b.score) {
+            return 1;
+        } else {
+            return -1;
+        } 
+    });
+    
+    highscoreDisplayEl.innerHTML="";
+    for (let i = 0; i < userScore.length; i++) {
+        var highscoreOrder = document.createElement("li");
+        highscoreOrder.textContent = `${userScore[i].initials} : ${userScore[i].score}`;
+        highscoreDisplayEl.append(highscoreOrder);
+    }
+
+    // functions to log scores and show scores
+    logScores();
+    showScores();
+}
+
+
+
+
 
 
 
