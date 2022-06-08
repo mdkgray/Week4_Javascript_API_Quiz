@@ -4,7 +4,7 @@ var startButton = document.querySelector(".startButton");
 // answer button for questions variable 
 var ansBtn = document.querySelectorAll("button.answer-btns");
 
-// variables for action buttons e.g. sumbit, go back, clear scores, view scores
+// variables for action buttons e.g. submit, go back, clear scores, view scores
 var submitScoreBtn = document.querySelector("submit-button");
 var clearScoreBtn = document.querySelector("#clearHighscores");
 var viewScoreBtn = document.querySelector("#view-scores")
@@ -46,27 +46,27 @@ var userScore = [];
 var questions = [
     {
         question: "Commonly used data types DO NOT include:",
-        answers: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
+        answerArray: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
         correctAnswer: "2"
     },
     {
         question: "The condition in an if/else statement is enclosed within _____.",
-        answers: ["1. quotes", "2. curly brackets", "3. parentheses", "4. square brackets"],
+        answerArray: ["1. quotes", "2. curly brackets", "3. parentheses", "4. square brackets"],
         correctAnswer: "1"
     },
     {
         question: "Arrays in JavaScript can be used to store _____.",
-        answers: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
+        answerArray: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
         correctAnswer: "3"
     },
     {
         question: "String values must be enclosed within _____ when being assigned to variables.",
-        answers: ["1. commmas", "2. curly brackets", "3. quotes", "4. parentheses"],
+        answerArray: ["1. commmas", "2. curly brackets", "3. quotes", "4. parentheses"],
         correctAnswer: "2"
     },
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        answers: ["1. Javascript", "2. terminal/bash", "3. for loops", "4. console.log"],
+        answerArray: ["1. Javascript", "2. terminal/bash", "3. for loops", "4. console.log"],
         correctAnswer: "3"
     }
 ];
@@ -102,10 +102,10 @@ function startQuiz() {
 function cycleQuestion(id) {
     if (id < questions.length) {
         questionEl.textContent = questions[id].question;
-        ans1Btn.textContent = questions[id].answers[0];
-        ans2Btn.textContent = questions[id].answers[1];
-        ans3Btn.textContent = questions[id].answers[2];
-        ans4Btn.textContent = questions[id].answers[3];
+        ans1Btn.textContent = questions[id].answerArray[0];
+        ans2Btn.textContent = questions[id].answerArray[1];
+        ans3Btn.textContent = questions[id].answerArray[2];
+        ans4Btn.textContent = questions[id].answerArray[3];
     }
 }
 
@@ -115,21 +115,21 @@ function checkAnswers(event) {
 
     // display right/wrong <p> tag underneath question options 
     rightWrong.style.display = "block";
-    var questionStatus = document.createElement("p");
-    rightWrong.appendChild(questionStatus);
+    var correctIncorrect = document.createElement("p");
+    rightWrong.appendChild(correctIncorrect);
 
 
     // set new element for certain time after showing 
     setTimeout(function() {
-        questionStatus.style.display = "none";
+        correctIncorrect.style.display = "none";
     }, 1000);
 
     if (questions[questionCount].correctAnswer === event.target.value) {
-        questionStatus.textContent = "Correct!";
+        correctIncorrect.textContent = "Correct!";
     }
     else if (questions[questionCount].correctAnswer !== event.target.value) {
         secondsLeft = secondsLeft - 10;
-        questionStatus.textContent = "Wrong!";
+        correctIncorrect.textContent = "Wrong!";
     }
 
     // displays next question after one is answered
@@ -149,8 +149,6 @@ function addScore(event) {
     var userInitials = initialsInput.value.toUpperCase();
     userScore.push({initials: userInitials, score: secondsLeft});
 
-
-
   // sorts score highest to lowest then appends them to the DOM
     userScore = userScore.sort((a, b) => {
         if (a.score < b.score) {
@@ -164,7 +162,7 @@ function addScore(event) {
     for (let i = 0; i < userScore.length; i++) {
         var highscoreOrder = document.createElement("li");
         highscoreOrder.textContent = `${userScore[i].initials} : ${userScore[i].score}`;
-        highscoreDisplayEl.append(highscoreOrder);
+        highscoreDisplayEl.appendChild(highscoreOrder);
     }
 
     // functions to log scores and show scores
@@ -172,13 +170,28 @@ function addScore(event) {
     showScores();
 }
 
+// function to log scores
+function logScores() {
+    localStorage.setItem("userScore", JSON.stringify(userScore));
+}
 
+// function to show scores
+function showScores() {
+    var storedUserScores = JSON.parse(localStorage.getItem.userScore);
+    if (storedUserScores !== null) {
+        userScore = storedUserScores;
+    }
+}
 
+// function to clear scores from local storage
+function clearScores() {
+    localStorage.clear();
+    highscoreDisplayEl.innerHTML = "";
+}
 
+// EVENT LISTENERS FOR BUTTONS
 
-
-
-// event listener to start quiz 
+// event listener for start button to start quiz 
 startButton.addEventListener("click", startQuiz);
 
 // event listener for multiple choice answer buttons 
@@ -186,25 +199,28 @@ ansBtn.forEach(item => {
     item.addEventListener("click", checkAnswers);
 });
 
+submitScoreBtn.addEventListener("click", showScores);
+
+goBackBtn.addEventListener("click", function () {
+    highscoreEl.style.display = "none";
+    landingPage.style.display = "block";
+    secondsLeft = 75;
+    timerElement.textContent = ("Time:" + secondsLeft + "seconds left");
+});
+
+clearScoreBtn.addEventListener("click", clearScores);
+
+viewScoreBtn.addEventListener("click", function () {
+    if (highscoreEl.style.display === "none") {
+        highscoreEl.style.display = "block";
+    }else if (highscoreEl.style.display === "block") {
+        highscoreEl.style.display = "none"
+    } else {
+        return alert("No highscores to show");
+    }
+});
 
 
+// highscores are not working need to activate and display button
 
-//      write global variables
-// questions
-// start button
-// options to choose from in questions 
-// timer 
-
-// 1. add event listener to start quiz button which starts function to start quiz
-// start quiz reveals question 1 and starts timer down from 75 secs
-// write interval timer function which takes 10 seconds each wrong answer
-
-// start button shows question 1 
-
-// 2. quiz function
-// if/else function for answers to select correct answer 
-// show either "correct" or "incorrect" after seelction is made 
-// 3. after quiz input for initials and log score in local storage
-// view highscore function to show previous scores when logged
-// function to clear highscores from list 
 
