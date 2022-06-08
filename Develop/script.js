@@ -161,7 +161,9 @@ function addScore(event) {
     highscoreDisplayEl.innerHTML="";
     for (let i = 0; i < userScore.length; i++) {
         var highscoreOrder = document.createElement("li");
+
         highscoreOrder.textContent = `${userScore[i].initials} : ${userScore[i].score}`;
+        
         highscoreDisplayEl.appendChild(highscoreOrder);
     }
 
