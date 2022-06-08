@@ -5,7 +5,7 @@ var startButton = document.querySelector(".startButton");
 var ansBtn = document.querySelectorAll("button.answer-btns");
 
 // variables for action buttons e.g. submit, go back, clear scores, view scores
-var submitScoreBtn = document.querySelector("submit-button");
+var submitScoreBtn = document.querySelector(".submit-button");
 var clearScoreBtn = document.querySelector("#clearHighscores");
 var viewScoreBtn = document.querySelector("#view-scores")
 var goBackBtn = document.querySelector("#backButton")
@@ -71,6 +71,18 @@ var questions = [
     }
 ];
 
+// start quiz function 
+function startQuiz() {
+    landingPage.style.display = "none";
+    allQuestionsEl.style.display = "block";
+    questionCount = 0;
+    timerCount = 75;
+    startButton.disabled = true;
+    
+    startTimer();
+    cycleQuestion(questionCount);
+}
+
 // start timer function 
 function startTimer() {
     var timer = setInterval(function() {
@@ -85,18 +97,6 @@ function startTimer() {
         }
     }, 1000);    
 }  
-
-// start quiz function 
-function startQuiz() {
-    landingPage.style.display = "none";
-    allQuestionsEl.style.display = "block";
-    questionCount = 0;
-    timerCount = 75;
-    startButton.disabled = true;
-    
-    startTimer();
-    cycleQuestion(questionCount);
-}
 
 // cycle question function 
 function cycleQuestion(id) {
@@ -158,6 +158,7 @@ function addScore(event) {
         } 
     });
     
+    // appends new highscore to the DOM
     highscoreDisplayEl.innerHTML="";
     for (let i = 0; i < userScore.length; i++) {
         var highscoreOrder = document.createElement("li");
@@ -167,7 +168,7 @@ function addScore(event) {
         highscoreDisplayEl.appendChild(highscoreOrder);
     }
 
-    // functions to log scores and show scores
+    // functions to log scores and show scores within 'add score' function
     logScores();
     showScores();
 }
@@ -179,7 +180,7 @@ function logScores() {
 
 // function to show scores
 function showScores() {
-    var storedUserScores = JSON.parse(localStorage.getItem.userScore);
+    var storedUserScores = JSON.parse(localStorage.getItem("userScore"));
     if (storedUserScores !== null) {
         userScore = storedUserScores;
     }
@@ -201,17 +202,21 @@ ansBtn.forEach(item => {
     item.addEventListener("click", checkAnswers);
 });
 
-submitScoreBtn.addEventListener("click", showScores);
+// event listener for submit score button
+submitScoreBtn.addEventListener("click", addScore);
 
+// event listener and function for go back button
 goBackBtn.addEventListener("click", function () {
     highscoreEl.style.display = "none";
     landingPage.style.display = "block";
     secondsLeft = 75;
-    timerElement.textContent = ("Time:" + secondsLeft + "seconds left");
+    timerElement.textContent = (secondsLeft);
 });
 
+// event listener for clear score button
 clearScoreBtn.addEventListener("click", clearScores);
 
+// event listener and function for view score button
 viewScoreBtn.addEventListener("click", function () {
     if (highscoreEl.style.display === "none") {
         highscoreEl.style.display = "block";
@@ -221,8 +226,3 @@ viewScoreBtn.addEventListener("click", function () {
         return alert("No highscores to show");
     }
 });
-
-
-// highscores are not working need to activate and display button
-
-
