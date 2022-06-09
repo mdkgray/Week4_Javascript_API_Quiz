@@ -63,9 +63,15 @@ p {
     cursor: pointer;
 }
 
+.all-question {
+    width: 400px;
+    margin-left: 33%;
+}
+
 .questions-ul {
     list-style-type: none;
     display: contents;
+    width: 400px;
 }
 
 .questions-li {
