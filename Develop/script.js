@@ -25,7 +25,7 @@ var score = document.querySelector("#scoreInput");
 var secondsLeft = 75;
 
 // variables for questions section
-var allQuestionsEl = document.querySelector(".all-question");
+var questionsSection = document.querySelector(".all-question");
 
 // variables for question elements and right/wrong
 var questionEl = document.querySelector("#question");
@@ -74,10 +74,9 @@ var questions = [
 // start quiz function 
 function startQuiz() {
     landingPage.style.display = "none";
-    allQuestionsEl.style.display = "block";
+    questionsSection.style.display = "block";
     questionCount = 0;
     timerCount = 75;
-    startButton.disabled = true;
     
     startTimer();
     cycleQuestion(questionCount);
@@ -91,7 +90,7 @@ function startTimer() {
 
         if (secondsLeft === 0 || questionCount === questions.length) {
             clearInterval(timer);
-            allQuestionsEl.style.display = "none";
+            questionsSection.style.display = "none";
             finalScoreEl.style.display = "block";
             score.textContent = secondsLeft;            
         }
@@ -208,7 +207,7 @@ submitScoreBtn.addEventListener("click", addScore);
 // event listener and function for go back button
 goBackBtn.addEventListener("click", function () {
     highscoreEl.style.display = "none";
-    landingPage.style.display = "block";
+    landingPage.style.display = "flex";
     secondsLeft = 75;
     timerElement.textContent = (secondsLeft);
 });
