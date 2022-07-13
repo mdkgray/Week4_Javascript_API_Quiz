@@ -31,8 +31,8 @@ Javascript:
 - Developing functions such as starting the quiz, starting the timer, cycling the question, checking the answer, adding/logging/showing the score and clearing the score. 
 - Adding event listeners to buttons such as start quiz, buttons for answers in questions, submit button, back button and view highscore button. 
 
-## Website URL and
-[Click here to view website](https://mdkgray.github.io/Week4_Javascript_API_Quiz/)
+## Website URL
+[Click here to view website](https://mdkgray.github.io/javascript_API_quiz/)
 
 ## Screenshots
 ![Screenshot-1](./Assets/Screenshots/JS_Quiz1.PNG)
