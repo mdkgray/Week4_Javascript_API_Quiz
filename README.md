@@ -1,4 +1,4 @@
-# Week4 Javascript Code Quiz 
+# Javascript Quiz 
 
 ### By Mackenzie Gray   
 
@@ -32,7 +32,7 @@ Javascript:
 - Adding event listeners to buttons such as start quiz, buttons for answers in questions, submit button, back button and view highscore button. 
 
 ## Website URL
-[Click here to view website](https://mdkgray.github.io/javascript_API_quiz/)
+[Click here to view](https://mdkgray.github.io/javascript_API_quiz/)
 
 ## Screenshots
 ![Screenshot-1](./Assets/Screenshots/JS_Quiz1.PNG)
